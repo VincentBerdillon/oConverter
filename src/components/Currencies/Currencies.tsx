@@ -50,9 +50,9 @@ function Currencies({ currencies, setRate, setDescription }: CurrenciesProps) {
           type="text"
           className="currencies__input"
           value={searchText}
+          placeholder="recherche rapide"
           onChange={handleChangeSearchtextInput}
-        />{' '}
-        {searchText}
+        />
       </div>
       <ul className="currencies__list">
         {currenciesFiltered.map((currency) => (

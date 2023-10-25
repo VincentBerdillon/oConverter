@@ -1,0 +1,15 @@
+@use '../../styles/variables' as v;
+
+.footer{
+    position: absolute;
+    top: 643px;
+    
+    &__button{
+        font-weight: 300;
+        color: v.$color-light;
+        border: none;
+        border-radius:5px;
+        background-color: v.$color-primary;
+        padding: 0.2rem 0.4rem;
+    }
+}

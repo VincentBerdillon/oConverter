@@ -10,8 +10,13 @@
 
   &__title {
     font-weight: 700;
-    border-bottom: 1px solid v.$color-primary;
     padding: 0.5rem;
+  }
+
+  &__input {
+    font-weight: 300;
+    padding: 0.5rem;
+    width: 100%;
   }
 
   &__list {
