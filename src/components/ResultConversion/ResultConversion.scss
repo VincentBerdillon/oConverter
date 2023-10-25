@@ -1,0 +1,21 @@
+@use '../../styles/variables' as v;
+
+.result-conversion {
+  text-align: center;
+  color: v.$color-primary;
+  background-color: v.$color-light;
+  height: calc(539px / 4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__result {
+    font-weight: 700;
+    font-size: 2.5rem;
+  }
+
+  &__currency {
+    font-weight: 300;
+    font-size: 2rem;
+  }
+}

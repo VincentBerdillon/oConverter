@@ -1,0 +1,43 @@
+@use '../../styles/variables' as v;
+
+.currencies {
+  background-color: v.$color-light;
+  color: v.$color-primary;
+  height: calc(539px / 2);
+  overflow-y: scroll;
+  padding: 0.5rem;
+  font-size: 1.3rem;
+
+  &__title {
+    font-weight: 700;
+    border-bottom: 1px solid v.$color-primary;
+    padding: 0.5rem;
+  }
+
+  &__list {
+    padding: 0.5rem;
+    &-item {
+      list-style: none;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid v.$color-primary;
+      transition: background-color v.$delay-slow;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background-color: rgba(187, 83, 54, 0.3);
+        transition-duration: v.$delay-fast;
+      }
+    }
+    &-itemBtn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      color: inherit;
+    }
+  }
+}
