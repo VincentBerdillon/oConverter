@@ -1,19 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 import './Currencies.scss';
-
-// type CurrenciesProps = {
-//   currencies: {
-//     description: string;
-//     code: string;
-//     rate: number;
-//   }[];
-// };
-
-type Currency = {
-  description: string;
-  code: string;
-  rate: number;
-};
+import{ Currency } from '../../types/currency';
 
 type CurrenciesProps = {
   currencies: Currency[];
@@ -36,9 +23,9 @@ function Currencies({ currencies, setRate, setDescription }: CurrenciesProps) {
     return currency.description.toLowerCase().includes(searchTextLowerCased);
   });
 
-  function handleRate(currency: Currency) {
-    const { description } = currency;
-    const { rate } = currency;
+  function handleClickCurrency(currencyClicked: Currency) {
+    const { description } = currencyClicked;
+    const { rate } = currencyClicked;
     setRate(rate);
     setDescription(description);
   }
@@ -60,7 +47,7 @@ function Currencies({ currencies, setRate, setDescription }: CurrenciesProps) {
             <button
               type="button"
               className="currencies__list-itemBtn"
-              onClick={() => handleRate(currency)}
+              onClick={() => handleClickCurrency(currency)}
             >
               {currency.description}
             </button>
@@ -68,8 +55,7 @@ function Currencies({ currencies, setRate, setDescription }: CurrenciesProps) {
         ))}
         {currenciesFiltered.length === 0 && (
           <li className="currencies__item">
-            <button type="button" className="currencies__list-itemBtn">
-              {' '}
+            <button type="button" className="currencies__list-itemBtn" disabled>
               Aucune devise trouvée
             </button>
           </li>

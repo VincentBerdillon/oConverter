@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Currency } from '../../types/currency';
 
 import BaseAmount from '../BaseAmount/BaseAmount';
 import Currencies from '../Currencies/Currencies';
@@ -11,18 +12,16 @@ import currenciesData from '../../data/currencies';
 
 function App() {
   const [likesCount, setLikesCount] = useState(0);
-  const [rate, setRate] = useState(1);
-  const [description, setDescription] = useState('euro');
+  //const [rate, setRate] = useState(1);
+  const [currency, setCurrency] = useState<Currency>(currenciesData[0]);
 
   return (
     <div className="App">
       <BaseAmount />
       <Currencies
         currencies={currenciesData}
-        setRate={setRate}
-        setDescription={setDescription}
       />
-      <ResultConversion rate={rate} description={description} />
+      <ResultConversion value={currency.rate} currencyName={currency.description} />
       <Footer likesCount={likesCount} setLikesCount={setLikesCount} />
     </div>
   );
