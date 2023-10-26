@@ -4,11 +4,10 @@ import{ Currency } from '../../types/currency';
 
 type CurrenciesProps = {
   currencies: Currency[];
-  setRate: (value: number) => void;
-  setDescription: (value: string) => void;
+  onClickCurrency: (currency: Currency) => void;
 };
 
-function Currencies({ currencies, setRate, setDescription }: CurrenciesProps) {
+function Currencies({ currencies, onClickCurrency}: CurrenciesProps) {
   const [searchText, setSearchText] = useState('');
 
   function handleChangeSearchtextInput(
@@ -19,15 +18,12 @@ function Currencies({ currencies, setRate, setDescription }: CurrenciesProps) {
   }
 
   const currenciesFiltered = currencies.filter((currency) => {
-    const searchTextLowerCased = searchText.toLocaleLowerCase();
+    const searchTextLowerCased = searchText.toLowerCase();
     return currency.description.toLowerCase().includes(searchTextLowerCased);
   });
 
   function handleClickCurrency(currencyClicked: Currency) {
-    const { description } = currencyClicked;
-    const { rate } = currencyClicked;
-    setRate(rate);
-    setDescription(description);
+    onClickCurrency(currencyClicked);
   }
 
   return (
